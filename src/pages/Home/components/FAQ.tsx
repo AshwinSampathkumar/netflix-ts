@@ -3,7 +3,7 @@ import { HOME_LITERALS } from "../../../constants";
 import { Accordion } from "../../../components";
 
 export const FAQ: React.FC = () => {
-  const [accordionShow, setAccordionShow] = useState(-1);
+  const [accordionShow, setAccordionShow] = useState<number>(-1);
 
   return (
     <div className="flex justify-center py-12">

@@ -20,7 +20,7 @@ export const UnlimitedMovies = () => {
       </p>
       <div className="flex justify-center items-center mt-4">
         <div className="w-[365px]">
-          <Input placeholder="Email address" />
+          <Input placeholder="Email address" value="" />
         </div>
         <Button
           className="w-[210px] h-14 text-2xl font-bold ml-2"

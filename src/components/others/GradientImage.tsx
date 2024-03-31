@@ -1,15 +1,20 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import { HOME_LITERALS } from "../../constants";
 import { randomNumberGenerator } from "../../utils/randomNumberGenerator";
 import { GradientImageProps } from "../../types";
 
 const GradientImage: React.FC<GradientImageProps> = ({ height = "" }) => {
-  const randomBgIndex = randomNumberGenerator(0, 2);
+  const [bgIndex, setBgIndex] = useState<number>(-1);
+
+  useEffect(() => {
+    const randomBgIndex = randomNumberGenerator(0, 2);
+    setBgIndex(randomBgIndex);
+  }, []);
   return (
     <div className="relative">
       <img
         className={`w-full ${height || "h-screen"} object-cover`}
-        src={HOME_LITERALS?.bgUrl[randomBgIndex]}
+        src={HOME_LITERALS?.bgUrl[bgIndex]}
         alt="logo"
       />
       <div

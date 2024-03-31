@@ -7,9 +7,16 @@ export interface ButtonProps {
   onClick?: () => void;
 }
 
-export interface InputProps {
+export interface InputProps
+  extends React.DetailedHTMLProps<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  > {
   className?: string;
   placeholder: string;
+  name?: string;
+  value: string;
+  error?: string | null | undefined | false;
 }
 
 type ReactText = string | number;
