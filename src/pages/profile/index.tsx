@@ -3,11 +3,7 @@ import ProfileTile from "./components/ProfileTile";
 import { PROFILE_DATA } from "../../constants";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { RootState } from "../../store";
-import {
-  ProfileTileType,
-  ProviderDataEntity,
-  TilePressDataType,
-} from "../../types";
+import { ProfileTileType, ProviderDataEntity } from "../../types";
 import { useNavigate } from "react-router-dom";
 import { setSelectedProfile } from "../../store/slice/profileSlice";
 import ProfileIcon5 from "../../assets/svgs/profile-icon-5.svg";
@@ -18,7 +14,7 @@ export const Profile: React.FC = () => {
   const navigate = useNavigate();
   const userData = useAppSelector((store: RootState) => store.user);
 
-  const onPressTile = (payload: TilePressDataType) => {
+  const onPressTile = (payload: ProfileTileType) => {
     dispatch(setSelectedProfile(payload));
     navigate("/browse");
   };
@@ -46,9 +42,8 @@ export const Profile: React.FC = () => {
           {ProfileData.map((profile: ProfileTileType) => {
             return (
               <ProfileTile
-                key={profile.id}
-                title={profile.name}
-                imageSource={profile.resource}
+                key={profile?.id}
+                profile={profile}
                 onPressTile={onPressTile}
               />
             );

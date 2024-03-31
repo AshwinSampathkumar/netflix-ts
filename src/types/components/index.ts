@@ -1,8 +1,6 @@
 import { ReactElement, ReactFragment, ReactPortal } from "react";
+import { ProfileTileType } from "../store";
 
-export interface HeaderProps {
-  containerClassName?: string;
-}
 export interface ButtonProps {
   className?: string;
   label: string;
@@ -42,12 +40,11 @@ export interface GradientImageProps {
   height?: string;
 }
 
-export interface TilePressDataType {
-  title: string;
-  imageSource: string;
+export interface ProfileSelectProps {
+  profile: ProfileTileType;
 }
-export interface ProfileTileProps extends TilePressDataType {
-  onPressTile: (e: TilePressDataType) => void;
+export interface ProfileTileProps extends ProfileSelectProps {
+  onPressTile: (e: ProfileTileType) => void;
 }
 
 export interface VideoTitleType {

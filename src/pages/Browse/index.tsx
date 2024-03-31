@@ -19,7 +19,7 @@ export const Browse: React.FC = () => {
 
   return (
     <div>
-      <Header containerClassName="max-w-full mx-16" />
+      <Header />
       <>
         <MainContainer />
         <SecondaryContainer />

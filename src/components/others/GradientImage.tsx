@@ -18,7 +18,7 @@ const GradientImage: React.FC<GradientImageProps> = ({ height = "" }) => {
         alt="logo"
       />
       <div
-        className="bg-[rgb(0 0 0 / 40%)] absolute top-0 right-0 bottom-0 left-0"
+        className="bg-gradient-black absolute top-0 right-0 bottom-0 left-0"
         style={{
           backgroundImage:
             "linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.8) 100%)",
