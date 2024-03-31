@@ -2,7 +2,8 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 import userReducer from "./slice/userSlice";
-import profilesSlice from "./slice/userSlice";
+import profilesSlice from "./slice/profileSlice";
+import moviesSlice from "./slice/moviesSlice";
 
 const persistConfig = {
   key: "root",
@@ -10,8 +11,9 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  userReducer,
-  profilesSlice,
+  user: userReducer,
+  profiles: profilesSlice,
+  movies: moviesSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -16,17 +16,17 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks";
 export const Auth: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const { userReducer: userData } = useAppSelector((store: RootState) => store);
+  const { user } = useAppSelector((store: RootState) => store);
   const { authType } = useParams();
 
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (userData?.uid) {
+    if (user?.uid) {
       navigate("/profile");
     }
-  }, [userData]);
+  }, [user]);
 
   const onLoginSubmit = async (payload: LoginFormType) => {
     setErrorMessage(null);

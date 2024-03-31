@@ -1,5 +1,8 @@
 import { ReactElement, ReactFragment, ReactPortal } from "react";
 
+export interface HeaderProps {
+  containerClassName?: string;
+}
 export interface ButtonProps {
   className?: string;
   label: string;
@@ -45,4 +48,22 @@ export interface TilePressDataType {
 }
 export interface ProfileTileProps extends TilePressDataType {
   onPressTile: (e: TilePressDataType) => void;
+}
+
+export interface VideoTitleType {
+  title: string;
+  overview: string;
+}
+
+export interface VideoBackgroundType {
+  movieId: number | string;
+}
+
+export interface MoviesListProps {
+  title: string;
+  movies: any;
+}
+
+export interface MovieCardProps {
+  posterPath: string;
 }

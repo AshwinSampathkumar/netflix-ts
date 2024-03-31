@@ -2,8 +2,9 @@ import React from "react";
 import { HOME_LITERALS } from "../../constants";
 import Button from "../form/Button";
 import { useNavigate, useLocation } from "react-router-dom";
+import { HeaderProps } from "../../types";
 
-const Header: React.FC = () => {
+const Header: React.FC<HeaderProps> = ({ containerClassName = "" }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -15,7 +16,9 @@ const Header: React.FC = () => {
 
   return (
     <header className="absolute z-10 w-full flex justify-center">
-      <div className="flex w-full justify-between items-center max-w-[1200px]">
+      <div
+        className={`flex w-full justify-between items-center max-w-[1200px] ${containerClassName}`}
+      >
         <img
           className="w-44 mx-auto md:mx-0"
           src={HOME_LITERALS.logo}

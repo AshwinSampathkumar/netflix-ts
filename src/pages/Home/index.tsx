@@ -10,7 +10,7 @@ import { RootState } from "../../store";
 import { useNavigate } from "react-router-dom";
 
 export const Home: React.FC = () => {
-  const userData = useAppSelector((store: RootState) => store.userReducer);
+  const userData = useAppSelector((store: RootState) => store.user);
 
   const navigate = useNavigate();
 

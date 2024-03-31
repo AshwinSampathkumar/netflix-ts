@@ -16,7 +16,7 @@ import { Header } from "../../components";
 export const Profile: React.FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const userData = useAppSelector((store: RootState) => store.userReducer);
+  const userData = useAppSelector((store: RootState) => store.user);
 
   const onPressTile = (payload: TilePressDataType) => {
     dispatch(setSelectedProfile(payload));

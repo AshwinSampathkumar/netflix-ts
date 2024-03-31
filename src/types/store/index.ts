@@ -1,3 +1,5 @@
+import { MovieTrailerType, MoviesType } from "../api";
+
 export interface UserDataType {
   uid: string;
   email: string;
@@ -33,4 +35,14 @@ export interface ProfileTileType {
 }
 export interface ProfileSliceType {
   selectedProfile: ProfileTileType | null;
+}
+
+export interface MoviesSliceType {
+  nowPlayingMovies: MoviesType[] | null;
+  popularMovies: MoviesType[] | null;
+  trendingMovies: MoviesType[] | null;
+  topRatedMovies: MoviesType[] | null;
+  tvShows: MoviesType[] | null;
+  movies: MoviesType[] | null;
+  trailerVideo: MovieTrailerType | null;
 }
