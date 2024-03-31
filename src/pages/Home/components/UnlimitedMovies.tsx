@@ -1,19 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Button, Input } from "../../../components";
 import { useNavigate } from "react-router-dom";
-import { RootState } from "../../../store";
-import { useAppSelector } from "../../../store/hooks";
 
 export const UnlimitedMovies = () => {
-  const userData = useAppSelector((store: RootState) => store.userReducer);
-
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (userData?.uid) {
-      navigate("/profile");
-    }
-  }, [userData]);
 
   const onGetStarted = () => {
     navigate("/auth/signup");

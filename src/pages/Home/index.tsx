@@ -5,8 +5,21 @@ import { ViewersContentDataProps } from "../../types";
 import { UnlimitedMovies } from "./components/UnlimitedMovies";
 import { ViewersContent } from "./components/ViewersContent";
 import { FAQ } from "./components/FAQ";
+import { useAppSelector } from "../../store/hooks";
+import { RootState } from "../../store";
+import { useNavigate } from "react-router-dom";
 
 export const Home: React.FC = () => {
+  const userData = useAppSelector((store: RootState) => store.userReducer);
+
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    if (userData?.uid) {
+      navigate("/profile");
+    }
+  }, [userData]);
+
   return (
     <div className="relative bg-black">
       <Header />

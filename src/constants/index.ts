@@ -1,3 +1,8 @@
+import ProfileIcon1 from "../assets/svgs/profile-icon-1.svg";
+import ProfileIcon2 from "../assets/svgs/profile-icon-2.svg";
+import ProfileIcon3 from "../assets/svgs/profile-icon-3.svg";
+import ProfileIcon4 from "../assets/svgs/profile-icon-4.svg";
+
 export const HOME_LITERALS = {
   bgUrl: [
     "https://assets.nflxext.com/ffe/siteui/vlv3/fc164b4b-f085-44ee-bb7f-ec7df8539eff/d23a1608-7d90-4da1-93d6-bae2fe60a69b/IN-en-20230814-popsignuptwoweeks-perspective_alpha_website_large.jpg",
@@ -91,3 +96,26 @@ export const USER_DATA = {
   userAvatar:
     "https://occ-0-6247-2164.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABdpkabKqQAxyWzo6QW_ZnPz1IZLqlmNfK-t4L1VIeV1DY00JhLo_LMVFp936keDxj-V5UELAVJrU--iUUY2MaDxQSSO-0qw.png?r=e6e",
 };
+
+export const PROFILE_DATA = [
+  {
+    id: "2",
+    name: "Dad",
+    resource: ProfileIcon4,
+  },
+  {
+    id: "3",
+    name: "Mom",
+    resource: ProfileIcon3,
+  },
+  {
+    id: "4",
+    name: "Friend 1",
+    resource: ProfileIcon1,
+  },
+  {
+    id: "5",
+    name: "Kids",
+    resource: ProfileIcon2,
+  },
+];

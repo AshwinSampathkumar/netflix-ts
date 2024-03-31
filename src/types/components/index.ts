@@ -38,3 +38,11 @@ export interface AccordionProps {
 export interface GradientImageProps {
   height?: string;
 }
+
+export interface TilePressDataType {
+  title: string;
+  imageSource: string;
+}
+export interface ProfileTileProps extends TilePressDataType {
+  onPressTile: (e: TilePressDataType) => void;
+}

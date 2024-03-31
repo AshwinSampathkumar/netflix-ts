@@ -25,3 +25,12 @@ export interface StsTokenManager {
   accessToken: string;
   expirationTime: number;
 }
+
+export interface ProfileTileType {
+  id: string | number;
+  name: string;
+  resource: string;
+}
+export interface ProfileSliceType {
+  selectedProfile: ProfileTileType | null;
+}
