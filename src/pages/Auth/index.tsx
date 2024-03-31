@@ -16,7 +16,7 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks";
 export const Auth: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const userData = useAppSelector((store: RootState) => store.userReducer);
+  const { userReducer: userData } = useAppSelector((store: RootState) => store);
   const { authType } = useParams();
 
   const navigate = useNavigate();
