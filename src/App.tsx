@@ -3,7 +3,7 @@ import { Body } from "./components";
 
 function App() {
   return (
-    <div className="h-screen bg-black">
+    <div className="h-screen bg-black text-white">
       <Body />
     </div>
   );

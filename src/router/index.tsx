@@ -2,7 +2,7 @@ import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { Home } from "../pages/Home";
-import { Login } from "../pages/Login";
+import { Auth } from "../pages/Auth";
 import { Browse } from "../pages/Browse";
 
 function Router() {
@@ -12,8 +12,8 @@ function Router() {
       element: <Home />,
     },
     {
-      path: "/login",
-      element: <Login />,
+      path: "/auth",
+      element: <Auth />,
     },
     {
       path: "/browse",

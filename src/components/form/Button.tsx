@@ -6,7 +6,7 @@ const Button: React.FC<ButtonProps> = (props) => {
 
   return (
     <button
-      className={`text-white rounded bg-danger ${className}`}
+      className={`rounded bg-danger ${className}`}
       onClick={onClick}
       {...rest}
     >

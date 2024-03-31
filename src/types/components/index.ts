@@ -26,3 +26,7 @@ export interface AccordionProps {
     | null
     | undefined;
 }
+
+export interface GradientImageProps {
+  height?: string;
+}

@@ -1,4 +1,4 @@
-interface ViewersContentDataProps {
+export interface ViewersContentDataProps {
   id: number;
   title: string;
   description: string;

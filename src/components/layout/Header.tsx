@@ -1,9 +1,15 @@
 import React from "react";
 import { HOME_LITERALS } from "../../constants";
 import Button from "../form/Button";
+import { useNavigate } from "react-router-dom";
 
 const Header: React.FC = () => {
-  const onSignin = () => {};
+  const navigate = useNavigate();
+
+  const onSignin = () => {
+    navigate("/auth");
+  };
+
   return (
     <header className="absolute z-10 w-full flex justify-center">
       <div className="flex w-full justify-between items-center max-w-[1200px]">

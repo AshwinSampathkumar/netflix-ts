@@ -7,7 +7,7 @@ export const FAQ: React.FC = () => {
 
   return (
     <div className="flex justify-center py-12">
-      <div className="text-white max-w-[1200px] w-full">
+      <div className="max-w-[1200px] w-full">
         <h1 className="text-5xl text-center font-bold my-6">
           Frequently Asked Questions
         </h1>
