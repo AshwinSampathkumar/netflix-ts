@@ -8,7 +8,7 @@ import { ViewersContentDataProps } from "../../types";
 
 export const Home: React.FC = () => {
   return (
-    <div className="relative  bg-black">
+    <div className="relative">
       <Header />
       <GradientImage height="h-[700px]" />
       <UnlimitedMovies />

@@ -12,7 +12,7 @@ function Router() {
       element: <Home />,
     },
     {
-      path: "/auth",
+      path: "/auth/:authType",
       element: <Auth />,
     },
     {

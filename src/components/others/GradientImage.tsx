@@ -3,12 +3,12 @@ import { HOME_LITERALS } from "../../constants";
 import { randomNumberGenerator } from "../../utils/randomNumberGenerator";
 import { GradientImageProps } from "../../types";
 
-const GradientImage: React.FC<GradientImageProps> = ({ height }) => {
+const GradientImage: React.FC<GradientImageProps> = ({ height = "" }) => {
   const randomBgIndex = randomNumberGenerator(0, 2);
   return (
     <div className="relative">
       <img
-        className={`w-full ${height} object-cover`}
+        className={`w-full ${height || "h-screen"} object-cover`}
         src={HOME_LITERALS?.bgUrl[randomBgIndex]}
         alt="logo"
       />

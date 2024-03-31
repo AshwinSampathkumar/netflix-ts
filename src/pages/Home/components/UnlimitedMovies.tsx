@@ -1,8 +1,13 @@
 import React from "react";
 import { Button, Input } from "../../../components";
+import { useNavigate } from "react-router-dom";
 
 export const UnlimitedMovies = () => {
-  const onGetStarted = () => {};
+  const navigate = useNavigate();
+
+  const onGetStarted = () => {
+    navigate("/auth/signup");
+  };
 
   return (
     <div className="absolute z-10 top-[300px] w-full text-center">
@@ -14,10 +19,13 @@ export const UnlimitedMovies = () => {
         Ready to watch? Enter your email to create or restart your membership.
       </p>
       <div className="flex justify-center items-center mt-4">
-        <Input className="w-[365px]" placeholder="Email address" />
+        <div className="w-[365px]">
+          <Input placeholder="Email address" />
+        </div>
         <Button
           className="w-[210px] h-14 text-2xl font-bold ml-2"
           label="Get Started"
+          type="button"
           onClick={onGetStarted}
         />
       </div>

@@ -1,14 +1,17 @@
 import React from "react";
 import { HOME_LITERALS } from "../../constants";
 import Button from "../form/Button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const onSignin = () => {
-    navigate("/auth");
+    navigate("/auth/login");
   };
+
+  const pathName = location?.pathname;
 
   return (
     <header className="absolute z-10 w-full flex justify-center">
@@ -18,7 +21,14 @@ const Header: React.FC = () => {
           src={HOME_LITERALS.logo}
           alt="logo"
         />
-        <Button className="w-[74px] h-8" label="Sign in" onClick={onSignin} />
+        {pathName === "/" && (
+          <Button
+            className="w-[74px] h-8"
+            label="Sign in"
+            type="button"
+            onClick={onSignin}
+          />
+        )}
       </div>
     </header>
   );

@@ -1,13 +1,14 @@
 import { ReactElement, ReactFragment, ReactPortal } from "react";
 
 export interface ButtonProps {
-  className: string;
+  className?: string;
   label: string;
-  onClick: () => void;
+  type?: "button" | "submit" | "reset";
+  onClick?: () => void;
 }
 
 export interface InputProps {
-  className: string;
+  className?: string;
   placeholder: string;
 }
 
