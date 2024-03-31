@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, GradientImage, Header, Input } from "../../components";
 import { useNavigate, useParams } from "react-router-dom";
 import {
@@ -8,20 +8,49 @@ import {
   SignupSchema,
 } from "../../types/forms/auth";
 import { useFormik } from "formik";
+import { signin, signup } from "../../utils/firebaseActions";
+import { addUser } from "../../store/slice/userSlice";
+import { RootState } from "../../store";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 
 export const Auth: React.FC = () => {
-  const { authType } = useParams();
-  const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const onLoginSubmit = (payload: LoginFormType | SignupFormType) => {
-    if (payload) {
-      // console.log("inside onLoginSubmit payload", payload);
+  const userData = useAppSelector((store: RootState) => store.userReducer);
+  const { authType } = useParams();
+
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (userData?.uid) {
+      navigate("/profile");
+    }
+  }, [userData]);
+
+  const onLoginSubmit = async (payload: LoginFormType) => {
+    setErrorMessage(null);
+    if (authType && formik[authType].isValid) {
+      const { email, password } = payload;
+      const res: any = await signin(email, password);
+      if (!res?.error) {
+        dispatch(addUser(res?.data));
+      } else {
+        setErrorMessage(res?.data);
+      }
     }
   };
 
-  const onSignupSubmit = (payload: LoginFormType | SignupFormType) => {
-    if (payload) {
-      // console.log("inside onSignupSubmit payload", payload);
+  const onSignupSubmit = (payload: SignupFormType) => {
+    setErrorMessage(null);
+    if (authType && formik[authType].isValid) {
+      const { username, email, password } = payload;
+      const res: any = signup(username, email, password);
+      if (!res?.error) {
+        navigate("/auth/login");
+      } else {
+        setErrorMessage(res?.data);
+      }
     }
   };
 
@@ -47,8 +76,8 @@ export const Auth: React.FC = () => {
     login: loginFormik,
     signup: signupFormik,
   };
-  if (!authType) return null;
 
+  if (!authType) return null;
   return (
     <div className="relative">
       <Header />
@@ -111,13 +140,17 @@ export const Auth: React.FC = () => {
               type="submit"
             />
           </form>
+          <p className="text-red-500 font-bold text-lg py-2">{errorMessage}</p>
           <p>
             {authType === "login" ? (
               <>
                 New to Netflix?{" "}
                 <strong
                   className="cursor-pointer"
-                  onClick={() => navigate("/auth/signup")}
+                  onClick={() => {
+                    setErrorMessage(null);
+                    navigate("/auth/signup");
+                  }}
                 >
                   Sign up now.
                 </strong>
@@ -127,7 +160,10 @@ export const Auth: React.FC = () => {
                 Already have an account?{" "}
                 <strong
                   className="cursor-pointer"
-                  onClick={() => navigate("/auth/login")}
+                  onClick={() => {
+                    setErrorMessage(null);
+                    navigate("/auth/login");
+                  }}
                 >
                   Sign in now.
                 </strong>
