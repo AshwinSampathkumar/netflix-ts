@@ -1,46 +1,19 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { HOME_LITERALS } from "../../constants";
 import Button from "../form/Button";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { useAppSelector } from "../../store/hooks";
 import { RootState } from "../../store";
 import ProfileSelect from "./ProfileSelect";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../../utils/firebase";
-import { addUser, removeUser } from "../../store/slice/userSlice";
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
-  const dispatch = useAppDispatch();
   const location = useLocation();
 
   const userData = useAppSelector((store: RootState) => store.user);
   const selectedProfile = useAppSelector(
     (store: RootState) => store.profiles.selectedProfile
   );
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const { uid, email, displayName, photoURL } = user;
-        dispatch(
-          addUser({
-            uid: uid,
-            email: email,
-            displayName: displayName,
-            photoURL: photoURL,
-          })
-        );
-        navigate("/browse");
-      } else {
-        dispatch(removeUser());
-        navigate("/");
-      }
-    });
-
-    // Unsiubscribe when component unmounts
-    return () => unsubscribe();
-  }, []);
 
   const onSignin = () => {
     navigate("/auth/login");

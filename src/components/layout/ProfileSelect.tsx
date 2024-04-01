@@ -4,14 +4,17 @@ import { useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "../../utils/firebase";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../../store/hooks";
 
 const ProfileSelect: React.FC<ProfileSelectProps> = ({ profile }) => {
+  const navigate = useNavigate();
+
   const [show, toggleDropdown] = useState<boolean>(false);
 
   const onLogout = () => {
     signOut(auth)
-      .then(() => {})
+      .then(() => {
+        navigate("/");
+      })
       .catch((error) => {
         console.log("error", error);
       });
