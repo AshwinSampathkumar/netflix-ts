@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { setSelectedProfile } from "../../store/slice/profileSlice";
 import ProfileIcon5 from "../../assets/svgs/profile-icon-5.svg";
 import { Header } from "../../components";
+import { ROUTES_DATA } from "../../constants/routes";
 
 export const Profile: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -16,7 +17,7 @@ export const Profile: React.FC = () => {
 
   const onPressTile = (payload: ProfileTileType) => {
     dispatch(setSelectedProfile(payload));
-    navigate("/browse");
+    navigate(ROUTES_DATA.browse);
   };
 
   if (!userData?.providerData?.length) return null;

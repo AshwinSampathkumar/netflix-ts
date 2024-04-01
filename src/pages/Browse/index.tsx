@@ -11,6 +11,7 @@ import useMovies from "../../hooks/useMovies";
 import { useAppSelector } from "../../store/hooks";
 import { RootState } from "../../store";
 import { useNavigate } from "react-router-dom";
+import { ROUTES_DATA } from "../../constants/routes";
 
 export const Browse: React.FC = () => {
   useNowPlayingMovies();
@@ -25,7 +26,7 @@ export const Browse: React.FC = () => {
 
   useEffect(() => {
     if (!userData) {
-      navigate("/auth/login");
+      navigate(ROUTES_DATA.login);
     }
   }, []);
 

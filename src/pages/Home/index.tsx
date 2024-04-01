@@ -8,6 +8,7 @@ import { FAQ } from "./components/FAQ";
 import { useAppSelector } from "../../store/hooks";
 import { RootState } from "../../store";
 import { useNavigate } from "react-router-dom";
+import { ROUTES_DATA } from "../../constants/routes";
 
 export const Home: React.FC = () => {
   const userData = useAppSelector((store: RootState) => store.user);
@@ -16,7 +17,7 @@ export const Home: React.FC = () => {
 
   React.useEffect(() => {
     if (userData?.uid) {
-      navigate("/profile");
+      navigate(ROUTES_DATA.profile);
     }
   }, [userData]);
 

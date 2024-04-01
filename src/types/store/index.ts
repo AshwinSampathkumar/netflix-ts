@@ -46,3 +46,12 @@ export interface MoviesSliceType {
   movies: MoviesType[] | null;
   trailerVideo: MovieTrailerType | null;
 }
+
+export interface GptSliceType {
+  showGptSearch: boolean;
+  movieResults: any;
+  movieNames: any;
+}
+export interface ConfigType {
+  lang: string;
+}

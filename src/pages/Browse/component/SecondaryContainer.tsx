@@ -46,7 +46,7 @@ const SecondaryContainer = () => {
 
   return (
     <div className="bg-black">
-      <div className=" mt-0 md:-mt-52 pl-4 md:pl-12 relative z-20">
+      <div className=" mt-0 md:-mt-80 pl-4 md:pl-12 relative z-20">
         {data.map((item) => {
           return (
             <MovieList key={item.id} title={item.title} movies={item.dataset} />

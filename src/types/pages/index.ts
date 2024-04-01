@@ -7,3 +7,7 @@ export interface ViewersContentDataProps {
 export interface ViewersContentProps {
   data: ViewersContentDataProps;
 }
+
+export interface GPTSearchBarProps {
+  onError: () => void;
+}

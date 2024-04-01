@@ -4,6 +4,8 @@ import { persistReducer, persistStore } from "redux-persist";
 import userReducer from "./slice/userSlice";
 import profilesSlice from "./slice/profileSlice";
 import moviesSlice from "./slice/moviesSlice";
+import gptSlice from "./slice/gptSlice";
+import configSlice from "./slice/configSlice";
 
 const persistConfig = {
   key: "root",
@@ -14,6 +16,8 @@ const rootReducer = combineReducers({
   user: userReducer,
   profiles: profilesSlice,
   movies: moviesSlice,
+  gpt: gptSlice,
+  config: configSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

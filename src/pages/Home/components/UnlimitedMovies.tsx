@@ -1,12 +1,13 @@
 import React from "react";
 import { Button, Input } from "../../../components";
 import { useNavigate } from "react-router-dom";
+import { ROUTES_DATA } from "../../../constants/routes";
 
 export const UnlimitedMovies = () => {
   const navigate = useNavigate();
 
   const onGetStarted = () => {
-    navigate("/auth/signup");
+    navigate(ROUTES_DATA.signup);
   };
 
   return (

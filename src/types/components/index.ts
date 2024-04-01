@@ -64,3 +64,9 @@ export interface MoviesListProps {
 export interface MovieCardProps {
   posterPath: string;
 }
+
+export interface ToastProps {
+  show: boolean;
+  errorText: string;
+  onClose: () => void;
+}

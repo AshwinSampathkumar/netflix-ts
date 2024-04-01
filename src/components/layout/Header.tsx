@@ -5,6 +5,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useAppSelector } from "../../store/hooks";
 import { RootState } from "../../store";
 import ProfileSelect from "./ProfileSelect";
+import { ROUTES_DATA } from "../../constants/routes";
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const Header: React.FC = () => {
   );
 
   const onSignin = () => {
-    navigate("/auth/login");
+    navigate(ROUTES_DATA.login);
   };
 
   const pathName = location?.pathname;
@@ -29,11 +30,12 @@ const Header: React.FC = () => {
         }`}
       >
         <img
-          className="w-44 mx-auto md:mx-0"
+          className="w-44 mx-auto md:mx-0 cursor-pointer"
           src={HOME_LITERALS.logo}
           alt="logo"
+          onClick={() => navigate(ROUTES_DATA.entry)}
         />
-        {pathName === "/" && !userData && (
+        {pathName === ROUTES_DATA.entry && !userData && (
           <Button
             className="w-[74px] h-8"
             label="Sign in"
@@ -42,7 +44,17 @@ const Header: React.FC = () => {
           />
         )}
         {userData && selectedProfile && (
-          <ProfileSelect profile={selectedProfile} />
+          <div className="flex">
+            {/* GPT API key expired. need to recharge if needed */}
+            {/* {pathName === ROUTES_DATA.browse && (
+              <Button
+                label="GPT Search"
+                className="px-4 py-1 mr-3"
+                onClick={() => navigate(ROUTES_DATA.gptSearch)}
+              />
+            )} */}
+            <ProfileSelect profile={selectedProfile} />
+          </div>
         )}
       </div>
     </header>

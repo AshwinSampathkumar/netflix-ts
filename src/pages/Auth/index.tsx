@@ -12,6 +12,7 @@ import { signin, signup } from "../../utils/firebaseActions";
 import { addUser } from "../../store/slice/userSlice";
 import { RootState } from "../../store";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { ROUTES_DATA } from "../../constants/routes";
 
 export const Auth: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -24,7 +25,7 @@ export const Auth: React.FC = () => {
 
   useEffect(() => {
     if (user?.uid) {
-      navigate("/profile");
+      navigate(ROUTES_DATA.profile);
     }
   }, [user]);
 
@@ -47,7 +48,7 @@ export const Auth: React.FC = () => {
       const { username, email, password } = payload;
       const res: any = signup(username, email, password);
       if (!res?.error) {
-        navigate("/auth/login");
+        navigate(ROUTES_DATA.login);
       } else {
         setErrorMessage(res?.data);
       }
@@ -149,7 +150,7 @@ export const Auth: React.FC = () => {
                   className="cursor-pointer"
                   onClick={() => {
                     setErrorMessage(null);
-                    navigate("/auth/signup");
+                    navigate(ROUTES_DATA.signup);
                   }}
                 >
                   Sign up now.
@@ -162,7 +163,7 @@ export const Auth: React.FC = () => {
                   className="cursor-pointer"
                   onClick={() => {
                     setErrorMessage(null);
-                    navigate("/auth/login");
+                    navigate(ROUTES_DATA.login);
                   }}
                 >
                   Sign in now.

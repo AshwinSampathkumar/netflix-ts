@@ -5,6 +5,7 @@ import { Home } from "../pages/home";
 import { Auth } from "../pages/auth";
 import { Browse } from "../pages/browse";
 import { Profile } from "../pages/profile";
+import { GptSearch } from "../pages/gptSearch";
 
 function Router() {
   const appRouter = createBrowserRouter([
@@ -23,6 +24,10 @@ function Router() {
     {
       path: "/profile",
       element: <Profile />,
+    },
+    {
+      path: "/gpt-search",
+      element: <GptSearch />,
     },
   ]);
   return <RouterProvider router={appRouter} />;
