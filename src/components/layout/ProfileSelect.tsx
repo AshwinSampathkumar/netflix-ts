@@ -33,10 +33,9 @@ const ProfileSelect: React.FC<ProfileSelectProps> = ({ profile }) => {
   useListenToOutsideClick(blurRef, () => toggleDropdown(false));
 
   return (
-    <div className="relative">
+    <div className="relative" ref={blurRef}>
       <div
         className="flex items-center cursor-pointer"
-        ref={blurRef}
         onClick={() => toggleDropdown(!show)}
       >
         <img
