@@ -27,6 +27,7 @@ export const Auth: React.FC = () => {
     if (user?.uid) {
       navigate(ROUTES_DATA.profile);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   const onLoginSubmit = async (payload: LoginFormType) => {
@@ -146,28 +147,28 @@ export const Auth: React.FC = () => {
             {authType === "login" ? (
               <>
                 New to Netflix?{" "}
-                <strong
-                  className="cursor-pointer"
+                <button
+                  className="cursor-pointer font-bold"
                   onClick={() => {
                     setErrorMessage(null);
                     navigate(ROUTES_DATA.signup);
                   }}
                 >
                   Sign up now.
-                </strong>
+                </button>
               </>
             ) : (
               <>
                 Already have an account?{" "}
-                <strong
-                  className="cursor-pointer"
+                <button
+                  className="cursor-pointer font-bold"
                   onClick={() => {
                     setErrorMessage(null);
                     navigate(ROUTES_DATA.login);
                   }}
                 >
                   Sign in now.
-                </strong>
+                </button>
               </>
             )}
           </p>
